@@ -1,0 +1,5 @@
+Hint: view-source says "Not even google will find it this time"
+
+Solution: Check /robots.txt. It is disallowing a folder called "s3cr3t" to be crawled, so there must be something in it. Sure enough, there's a file /s3cr3t/users.txt that has the password
+
+Password: Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
