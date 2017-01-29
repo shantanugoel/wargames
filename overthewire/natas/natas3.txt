@@ -1,0 +1,5 @@
+Hint: Try to see what all files/folders you can access on the server
+
+Solution: Password is in /files/users.txt
+
+Password: sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14
