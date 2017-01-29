@@ -1,0 +1,5 @@
+Hint: The message tells you what you should be masquerading as.
+
+Solution: Spoof the referer header using curl and make it look like you are coming from the url that the message tells you onscreen. Will get the password in source.
+
+password: iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq
