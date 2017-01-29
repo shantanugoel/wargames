@@ -1,0 +1,5 @@
+Hint: There are other ways to reach the commands of right click without right clicking
+
+Solution: Get the source through curl or inspection tools etc
+
+Password: ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi
