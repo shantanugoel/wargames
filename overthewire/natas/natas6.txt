@@ -1,0 +1,5 @@
+Hint: What are the various ways in which browser can store information about user locally that you can change?
+
+Solution: Check the cookies/local storage etc and you will see a cookie "loggedin=0". Change this to 1 either through curl or in chrome dev tools, you can do this through js console by using command document.cookie="loggedin=1"
+
+Password: aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
