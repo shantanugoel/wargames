@@ -1,0 +1,5 @@
+Hint: As given on the page (View source link)
+
+Solution: The source shows that the backend code is looking at a file /includes/secret.inc to get the secret. So, open that file in browser and submit the secret to get the password.
+
+Password: 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9
