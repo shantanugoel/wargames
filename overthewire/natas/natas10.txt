@@ -1,5 +1,7 @@
-Hint: 
+Hint: Source seems to have no sanity checks in some places
 
-Solution: 
+Solution: the grep command is run without any input sanitization. We can terminate it with a ";" in the input box and run any other command. We searched the current dir but there wasn't anything interesting there. There was a tmp file but it wasn't readable. /etc/passwd doesn't have the password (and anyways even if it had, it'd have been a hash, not the password). We listed other dirs and came across /etc/natas_webpass/natas10. Bingo!
+Running below command gives us the password
+`;cat /etc/natas_webpass/natas10`
 
-Password: 
+Password: nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu

@@ -1,5 +1,7 @@
-Hint: 
+Hint: Vew source
 
-Solution: 
+Solution: Reverse the functions which form the secret to get the secret.
+echo base64_decode(strrev(hex2bin("3d3d516343746d4d6d6c315669563362")));
+(You can run it in an online php runner site)
 
-Password: 
+Password: W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl

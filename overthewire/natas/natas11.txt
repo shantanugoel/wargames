@@ -1,5 +1,5 @@
-Hint: 
+Hint: ; and & are now filtered. But there are other things that are not taken care of.
 
-Solution: 
+Solution: It doesn't check whitespace in the input. By separating with a whitespace, you can input a file name as well to search and use a wild char like "." to match everything. So, we use `. /etc/natas_webpass/natas11` as the input and grep will helpfully give us the password
 
-Password: 
+Password: U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK 
