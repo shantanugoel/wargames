@@ -1,0 +1,5 @@
+Hint: View source
+
+Solution: Replace "Home" with /etc/natas_webpass/natas8
+
+Password: DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
