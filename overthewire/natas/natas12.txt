@@ -1,5 +1,60 @@
-Hint: 
+Hint: Similar to natas11 but need to do a bit more reversing
 
-Solution: 
+Solution:
+We see that it's very similar to natas11 and just need to reverse the order of encoding/encryption but then realize that the encryption "key" is hidden.
+Not to worry though because it uses xor as a function for encryption. Since we know that if output = input xor key, we can get key by key = input xor output. We have the original input (showpassword & bgcolor elements initial values are known to be no and #ffffff respectively), and also the output (data cookie), we can get the key. Then we can use this key along with an input array of setting showpassword to yes to get the final data cookie value. Set this cookie (through curl or document.cookie) and post to get back the password.
 
-Password: 
+Sample code:
+
+To get the key
+
+<?
+function xor_encrypt($in) {
+    $orig = base64_decode("ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw%3D");
+    $text = $in;
+    $outText = '';
+
+    // Iterate through each character
+    for($i=0;$i<strlen($text);$i++) {
+    $outText .= $text[$i] ^ $orig[$i % strlen($orig)];
+    }
+  
+    return $outText;
+}
+
+$data = array("showpassword" => "no", "bgcolor" => "#ffffff");
+
+$encoded_data = json_encode($data);
+
+$key = xor_encrypt($encoded_data);
+
+echo $key;
+?>
+
+This gives an output of qw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jq, so can guess that key is qw8j.
+
+To get the data cookie:
+
+<?
+function xor_encrypt($in) {
+    $key = 'qw8J';
+    $text = $in;
+    $outText = '';
+
+    // Iterate through each character
+    for($i=0;$i<strlen($text);$i++) {
+    $outText .= $text[$i] ^ $key[$i % strlen($key)];
+    }
+
+    return $outText;
+}
+
+$a = array('showpassword' => "yes", 'bgcolor' => "#ffffff");
+$d = base64_encode(xor_encrypt(json_encode($a)));
+$tempdata = json_decode(xor_encrypt(base64_decode($d)), true);
+
+echo $d;
+
+?>
+
+Password: EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
