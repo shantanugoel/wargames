@@ -1,5 +1,6 @@
-Hint: 
+Hint: How does a program detect a file type?
 
-Solution: 
+Solution: It's very similar to last challenge, the only addition being that the server checks that uploaded file should be an image file. Looking at exif_imagettype function documentation, we see that it basically checks the first 2 bytes of a file to see if it is a jpg image. So, we generate/take a jpg image (To generate you can use imagemagick: convert -size 32x32 xc:transparent a.jpg).
+Now, open this file and take the first 2 bytes (i.e. 4 characters, 1 per nibble/4bits) and then paste your php code from last challenge after that and save as a php file. Now, do the same steps as last challenge and you will get the password
 
-Password: 
+Password: Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1
