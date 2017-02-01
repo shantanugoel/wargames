@@ -1,5 +1,10 @@
-Hint: 
+Hint: See if there are any sanity checks for the user related actions presented on the page.
 
-Solution: 
+Solution:
+We see that there is no sanity of the file contents that you are uploading. It doesn't even check if it is a real jpg image or not. This gives us an idea that we can craft a php file to read the password. Something like this:
+<? echo file_get_contents("/etc/natas_webpass/natas13"); ?>
+And once uploaded, we can access that path and it should give us the password. There's one small issue though. Once you create the above file, you'll notice that it's renaming to <random>.jpg. This puts a spanner in the works because the server doesn't execute the code then.
+It's simple to bypass it though. Looking at the code further, we see that it is taking the extension from the filename in a hidden input element in the form itself.
+This is the second issue. So, we change this file name to <something>.php on the client side before submitting the form with our crafted php file. This will result in the file being actually saved as a <random>.php file. You can access this now in the browser and it will give you the password!
 
-Password: 
+Password: jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY
