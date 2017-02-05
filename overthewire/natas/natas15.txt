@@ -1,5 +1,10 @@
-Hint: 
+Hint: View source and check for missing sanity checks in request as well as sql query
 
-Solution: 
+Solution:
+First thing to note is that the form doesn't really check if there was a POST request or not and will process a GET request just as well. This is not something very important but makes it easier to attack through the browser. This is because a GET request can be easily crafted through URL parameters and you don't need to craft a POST request using any tools like curl or any special commands etc.
+The source now shows that it expects a "username" parameter, a "password" parameter and an optional "debug" parameter. Since there is no sanity check on the query, you can insert terminator (;) and comment (--) characters to avoid checking the password at all. e.g.
+http://natas14.natas.labs.overthewire.org/?username=natas15%22%20;%20--%20&password=a&debug=true
 
-Password: 
+Trying to go to the above url will terminate the query at username and comment out the rest of it. This will make it pass the check in the next few lines "if(mysql_num_rows(mysql_query($query, $link)) > 0) { " since the query will have details returned for natas15 user and will then print the natas15 password happily.
+
+Password: AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J
