@@ -1,5 +1,63 @@
-Hint: 
+Hint: Similar to natas15 but now there is no output, so we need to think of another way to inject some sql query that can cause a detectable variation in success vs failure case
 
-Solution: 
+Solution: We can use the "IF" clause and "sleep" statements to achieve this. Essentially, we induce a sleep of 5 seconds whenever we match a letter in password and no sleep if not matched. Then we rely on a timeout of a lower threshold value to detect this. We also do an optimization by doing a "anywhere match" to reduce our sample dictionary.
 
-Password: 
+The code is in natas18.py
+Characters detected so far in password: 0
+Characters detected so far in password: 04
+Characters detected so far in password: 047
+Characters detected so far in password: 047d
+Characters detected so far in password: 047dg
+Characters detected so far in password: 047dgh
+Characters detected so far in password: 047dghj
+Characters detected so far in password: 047dghjl
+Characters detected so far in password: 047dghjlm
+Characters detected so far in password: 047dghjlmp
+Characters detected so far in password: 047dghjlmpq
+Characters detected so far in password: 047dghjlmpqs
+Characters detected so far in password: 047dghjlmpqsv
+Characters detected so far in password: 047dghjlmpqsvw
+Characters detected so far in password: 047dghjlmpqsvwx
+Characters detected so far in password: 047dghjlmpqsvwxy
+Characters detected so far in password: 047dghjlmpqsvwxyC
+Characters detected so far in password: 047dghjlmpqsvwxyCD
+Characters detected so far in password: 047dghjlmpqsvwxyCDF
+Characters detected so far in password: 047dghjlmpqsvwxyCDFI
+Characters detected so far in password: 047dghjlmpqsvwxyCDFIK
+Characters detected so far in password: 047dghjlmpqsvwxyCDFIKO
+Characters detected so far in password: 047dghjlmpqsvwxyCDFIKOP
+Characters detected so far in password: 047dghjlmpqsvwxyCDFIKOPR
+Password detected so far: x
+Password detected so far: xv
+Password detected so far: xvK
+Password detected so far: xvKI
+Password detected so far: xvKIq
+Password detected so far: xvKIqD
+Password detected so far: xvKIqDj
+Password detected so far: xvKIqDjy
+Password detected so far: xvKIqDjy4
+Password detected so far: xvKIqDjy4O
+Password detected so far: xvKIqDjy4OP
+Password detected so far: xvKIqDjy4OPv
+Password detected so far: xvKIqDjy4OPv7
+Password detected so far: xvKIqDjy4OPv7w
+Password detected so far: xvKIqDjy4OPv7wC
+Password detected so far: xvKIqDjy4OPv7wCR
+Password detected so far: xvKIqDjy4OPv7wCRg
+Password detected so far: xvKIqDjy4OPv7wCRgD
+Password detected so far: xvKIqDjy4OPv7wCRgDl
+Password detected so far: xvKIqDjy4OPv7wCRgDlm
+Password detected so far: xvKIqDjy4OPv7wCRgDlmj
+Password detected so far: xvKIqDjy4OPv7wCRgDlmj0
+Password detected so far: xvKIqDjy4OPv7wCRgDlmj0p
+Password detected so far: xvKIqDjy4OPv7wCRgDlmj0pF
+Password detected so far: xvKIqDjy4OPv7wCRgDlmj0pFs
+Password detected so far: xvKIqDjy4OPv7wCRgDlmj0pFsC
+Password detected so far: xvKIqDjy4OPv7wCRgDlmj0pFsCs
+Password detected so far: xvKIqDjy4OPv7wCRgDlmj0pFsCsD
+Password detected so far: xvKIqDjy4OPv7wCRgDlmj0pFsCsDj
+Password detected so far: xvKIqDjy4OPv7wCRgDlmj0pFsCsDjh
+Password detected so far: xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhd
+Password detected so far: xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP
+
+Password: xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP
