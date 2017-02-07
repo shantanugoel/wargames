@@ -1,5 +1,7 @@
-Hint: 
+Hint: The code looks complex but actually is easy. See all the conditions that are being checked to determine whether to print credentials or not and is there any sanity check on them.
 
-Solution: 
+Solution: There are lot of functions, but ultimately we see that the print_credentials will inevitably be called. And it depends on mainly on whether the current session has admin flag set or not. Now, you can't really set the flag yourself but you will notice that the session id to identify the session is being taken from the client side in the form of "PHPSESSID" cookie. Conveniently, we see that the session id is generated as an integer value between 1 to 640. So, we can easily brute force the session id and as long as the admin had started a session, we will be able to get to the password.
 
-Password: 
+The code is in natas19.py
+
+Password: 4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs
